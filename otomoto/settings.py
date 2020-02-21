@@ -11,8 +11,8 @@
 
 BOT_NAME = 'otomoto'
 
-SPIDER_MODULES = ['scrapy_testing.spiders']
-NEWSPIDER_MODULE = 'scrapy_testing.spiders'
+SPIDER_MODULES = ['otomoto.spiders']
+NEWSPIDER_MODULE = 'otomoto.spiders'
 
 # MongoDB
 MONGODB_SERVER = "localhost"
