@@ -1,7 +1,7 @@
 
 FROM python:3.7.2
 
-WORKDIR /home/random05510/python/scrapper
+WORKDIR /home/random05510/otomoto_scrapper
 
 COPY requirements.txt ./
 
