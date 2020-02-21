@@ -13,14 +13,14 @@ import logging
 class OtomotoPipeline(object):
     def __init__(self):
         self.connection = pymongo.MongoClient(
-            settings['MONGODB_SERVER'],
-            settings['MONGODB_PORT']
+            settings.MONGODB_SERVER,
+            settings.MONGODB_PORT
         )
-        db = self.connection[settings['MONGODB_DB']]
-        self.collection = db[settings['MONGODB_COLLECTION']]
+        db = self.connection[settings.MONGODB_DB]
+        self.collection = db[settings.MONGODB_COLLECTION]
 
     def process_item(self, item, spider):
-        if self.collection.find_one({'Id': item['Id']}).count() == 1:
+        if self.collection.find_one({'Id': item['Id']}) is None:
             logging.info('Car already exist in database !')
         else:
             self.collection.insert(dict(item))
