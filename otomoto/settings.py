@@ -14,6 +14,11 @@ BOT_NAME = 'otomoto'
 SPIDER_MODULES = ['scrapy_testing.spiders']
 NEWSPIDER_MODULE = 'scrapy_testing.spiders'
 
+# MongoDB
+MONGODB_SERVER = "localhost"
+MONGODB_PORT = 27017
+MONGODB_DB = "otomoto"
+MONGODB_COLLECTION = "CarInfo"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = '(Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36)'
