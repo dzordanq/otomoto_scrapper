@@ -20,7 +20,7 @@ class OtomotoPipeline(object):
         self.collection = db[settings['MONGODB_COLLECTION']]
 
     def process_item(self, item, spider):
-        if self.collection.find({'Id': item['Id']}).count() == 1:
+        if self.collection.find_one({'Id': item['Id']}).count() == 1:
             logging.info('Car already exist in database !')
         else:
             self.collection.insert(dict(item))
