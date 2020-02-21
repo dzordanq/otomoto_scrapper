@@ -14,6 +14,8 @@ BOT_NAME = 'otomoto'
 SPIDER_MODULES = ['otomoto.spiders']
 NEWSPIDER_MODULE = 'otomoto.spiders'
 
+LOG_LEVEL = 'INFO'
+
 # MongoDB
 MONGODB_SERVER = "localhost"
 MONGODB_PORT = 27017
@@ -70,9 +72,9 @@ COOKIES_ENABLED = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'scrapy_testing.pipelines.ScrapyTestingPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'otomoto.pipelines.OtomotoPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
