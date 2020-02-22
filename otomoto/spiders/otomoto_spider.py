@@ -5,6 +5,7 @@ class OtomotoSpider(scrapy.Spider):
     allowed_domains = ['www.otomoto.pl']
     name = "otomoto"
     start_urls = ["https://www.otomoto.pl/osobowe/"]
+    make = ''
     
     # def start_requests(self):
     #     url = "https://www.otomoto.pl/osobowe/"
@@ -14,6 +15,7 @@ class OtomotoSpider(scrapy.Spider):
         makes_list = response.xpath("//select[@id='param571']/option/@value").getall()[1:]
         
         for make in makes_list:
+            self.make = make
             page = self.start_urls[0] + self.urljoin(make)
             yield scrapy.Request(url=page, callback=self.parse_page)
             
