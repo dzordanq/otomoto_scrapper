@@ -20,7 +20,8 @@ class OtomotoPipeline(object):
         self.collection = db[settings.MONGODB_COLLECTION]
 
     def process_item(self, item, spider):
-        if self.collection.find_one({'Id': item['Id']}) is None:
+        if self.collection.find_one({'Id': item['Id']}) is not None:
+            logging.info('Marka pojazdu: {0}'.format(spider.make))
             logging.info('Car already exist in database !')
         else:
             self.collection.insert(dict(item))
